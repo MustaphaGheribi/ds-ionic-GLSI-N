@@ -1,0 +1,7 @@
+{
+  "name": "tpIonic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,56 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-row>
+      <ion-col (click)='dismiss()'>
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-col>
+      <ion-label>
+        Contact Information
+      </ion-label>
+
+      <ion-col>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-label class="st">{{params.nom}} {{params.prenom}}</ion-label>
+
+  <ion-grid class="st-grid">
+    <ion-row>
+      <ion-col>
+        Phone number 1
+      </ion-col>
+      <ion-col>
+        {{params.tel1}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        Phone number 2 :
+      </ion-col>
+      <ion-col>
+        {{params.tel2}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        Type :
+      </ion-col>
+      <ion-col>
+        {{params.type}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        Creation date  :
+      </ion-col>
+      <ion-col>
+        {{params.date_creation}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

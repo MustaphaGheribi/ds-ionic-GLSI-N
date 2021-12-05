@@ -1,0 +1,102 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Contact List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-fab vertical="top" horizontal="end" edge slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button (click)="addContact()" ><ion-icon name="call-outline"></ion-icon></ion-fab-button>
+
+    </ion-fab-list>
+  </ion-fab>
+  <ion-segment style="margin-top: 30px;" mode="ios" [(ngModel)]="segementStateModel" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="amis">
+      <ion-label>Friends</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="famille">
+      <ion-label>family</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="professionnel">
+      <ion-label>professional</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="autre">
+      <ion-label>other</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-searchbar [(ngModel)]="term" showCancelButton="focus" cancelButtonText="Cancel"></ion-searchbar>
+  <ion-grid *ngIf="segementStateModel == 'amis' ">
+    <div *ngFor="let item of contact | filter:term">
+      <ion-row (click)="contactInfo(item)" class="card" *ngIf="item.type == 'amis' ">
+        <ion-col class="ion-text-center">
+          <ion-label>
+            {{item.nom}}
+          </ion-label>
+        </ion-col>
+        <ion-col class="ion-text-center">
+          <ion-label>
+            {{item.prenom}}
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </div>
+
+  </ion-grid>
+  <ion-grid *ngIf="segementStateModel == 'famille' ">
+    <div *ngFor="let item of contact | filter:term">
+      <ion-row (click)="contactInfo(item)" class="card" *ngIf="item.type == 'famille' ">
+        <ion-col class="ion-text-center">
+          <ion-label>
+            {{item.nom}}
+          </ion-label>
+        </ion-col>
+        <ion-col class="ion-text-center">
+          <ion-label>
+            {{item.prenom}}
+          </ion-label>
+        </ion-col>
+      </ion-row>
+
+    </div>
+  </ion-grid>
+  <ion-grid *ngIf="segementStateModel == 'professionnel' ">
+    <div *ngFor="let item of contact | filter:term">
+      <ion-row (click)="contactInfo(item)" class="card" *ngIf="item.type == 'professionnel' ">
+        <ion-col class="ion-text-center">
+          <ion-label>
+            {{item.nom}}
+          </ion-label>
+        </ion-col>
+        <ion-col class="ion-text-center">
+          <ion-label>
+            {{item.prenom}}
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+  <ion-grid *ngIf="segementStateModel == 'autre' ">
+    <div *ngFor="let item of contact | filter:term">
+      <ion-row (click)="contactInfo(item)" class="card" *ngIf="item.type == 'autre' ">
+        <ion-col class="ion-text-center">
+          <ion-label>
+            {{item.nom}}
+          </ion-label>
+        </ion-col>
+        <ion-col class="ion-text-center">
+          <ion-label>
+            {{item.prenom}}
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+
+</ion-content>
